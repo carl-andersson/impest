@@ -1,5 +1,11 @@
 # Impulse response estimation
 
-The implementation is made in tenorflow for pyhton. Data for training can be generated using the matlabscript generate_data.m.
+The implementation is made in Tensorflow for python and has been tested on Tensorflow 1.12 and python3.6. Other required packages are sklearn and numpy. No data is included to keep the repo small but can be generated using generated_data.m
 
-Update the path in dataprocess.py to point to you data and run the model by running python main.py
+##First setup 
+1. Install tensorflow and dependecies
+2. Run the following to generate data in matlab
+    1. `generate_data("data_train.mat",10000)`
+    2. `generate_data("data_test.mat",1000)`
+3. Start training `pyhton main.py`
+

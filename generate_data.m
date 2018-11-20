@@ -1,10 +1,29 @@
+function  [] = generate_data(filename, M,Ng,N,n)
+
 % Generate data for impulse response estimation
 % Niklas Wahlström 2017-05-17
 
-n = 30; % The order of the systems
-N = 125; % Number of time steps in each data set
-Ng = 50; % Number of time steps for the impulse response to be stored
-M = 1000000; % Number of data sets
+if nargin < 5
+    n = 30; % The order of the systems
+end
+
+if nargin < 4
+    N = 125; % Number of time steps in each data set
+end
+
+if nargin < 3
+    Ng = 50; % Number of time steps for the impulse response to be stored
+end
+
+if nargin < 2
+    M = 10000; % Number of data sets
+end
+
+if nargin < 1
+    filename = 'data.mat'; %File ouput
+end
+
+
 %SNR = 10; % The signal to noise ratio in the data
 % Using random SNR
 
@@ -78,6 +97,6 @@ for i = 1:M
 end
 
 if save_data == 1 % Save the data if desired
-    save('data_new.mat','U','Y','G','SNR');
+    save(filename,'U','Y','G','SNR');
 end
         

@@ -8,7 +8,7 @@ from sklearn import preprocessing
 import numpy as np
 import scipy.io
 
-def getData(name:str,path:str= "data/"):
+def getData(name:str,path:str= ""):
     mat = scipy.io.loadmat(path+name)
     
     U = mat['U'];
