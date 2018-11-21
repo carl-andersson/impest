@@ -38,8 +38,8 @@ if __name__ == '__main__':
     layers = [600, 300, 200]
 
     nMats = 500
-    trainingdata_file = "data_n30SNR.mat"
-    validationdata_file = "data.mat"
+    trainingdata_file = "data_train.mat"
+    validationdata_file = "data_test.mat"
 
     # Least squares caluclations
     with tf.variable_scope('LSModel', reuse=None) as scope:
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
         with tf.name_scope('Optimal_Regularization'):
             Pn = batchMatMul(tf.expand_dims(TH, 2), tf.expand_dims(TH, 1));
-            _, varEst = tf.nn.moments(Y, [1], keepdims=True);
+            _, varEst = tf.nn.moments(Y, [1], keep_dims=True);
             SNR = tf.placeholder(tf.float32, [None, 1]);
 
             varEst = 1 / (1 + SNR) * varEst;
